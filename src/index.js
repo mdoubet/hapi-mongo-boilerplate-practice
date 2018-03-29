@@ -4,6 +4,7 @@ import Relish from 'relish'
 import Pkg from '../package'
 import MongoPlugin from './plugins/mongo'
 import SenatePlugin from './plugins/senate'
+import ProductsPlugin from './plugins/Store'
 
 const relish = Relish()
 
@@ -71,7 +72,8 @@ const defaultPlugins = async server => {
 const customPlugins = async server => {
   const plugins = [
     { plugin: MongoPlugin, options: { mongoUri } },
-    { plugin: SenatePlugin }
+    { plugin: SenatePlugin },
+    { plugin: ProductsPlugin }
   ]
   
   await server.register(plugins)
